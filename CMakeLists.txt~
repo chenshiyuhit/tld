@@ -37,7 +37,7 @@ add_executable(run_tld src/run_tld.cpp)
 
 add_dependencies(run_tld run_tld_generate_messages_cpp)
 #link the libraries
-target_link_libraries(run_tld tld LKTracker ferNN tld_utils ${OpenCV_LIBS} ${catkin_LIBRARIES})
+target_link_libraries( tld LKTracker ferNN tld_utils ${OpenCV_LIBS} ${catkin_LIBRARIES} run_tld)
 #set optimization level 
 set(CMAKE_BUILD_TYPE Release)
 

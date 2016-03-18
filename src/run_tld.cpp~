@@ -156,10 +156,10 @@ int main(int argc, char** argv)
 			if(gotBB)
 			{
 				init_flag = true;
-				cvSetMouseCallback( "TLD", NULL, NULL );
-				printf("Initial Bounding Box = x:%d y:%d h:%d w:%d\n",box.x,box.y,box.width,box.height);
 			}
 		}
+		cvSetMouseCallback( "TLD", NULL, NULL );
+		printf("Initial Bounding Box = x:%d y:%d h:%d w:%d\n",box.x,box.y,box.width,box.height);
 		
 		if(init_flag)
 		{
