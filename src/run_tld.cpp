@@ -118,7 +118,8 @@ int main(int argc, char** argv)
 	image_transport::ImageTransport it_(csy);
 	image_transport::Subscriber image_sub_;	
 	image_sub_ = it_.subscribe("/camera/image_raw", 1000, imageCb);
-				
+//	image_sub_ = it_.subscribe("/firefly/camera_nadir/image_raw", 1000, imageCb);
+					
 	cvNamedWindow("TLD",CV_WINDOW_NORMAL);
 //	cvNamedWindow("Gray",CV_WINDOW_NORMAL);
 	cvNamedWindow("Examples",CV_WINDOW_NORMAL);
@@ -192,6 +193,16 @@ int main(int argc, char** argv)
 
 			detections++;
 		}
+		else
+		{
+			//csy
+			geometry_msgs::Pose2D pose;
+			pose.x = 0;
+			pose.y = 0;
+			pose.theta = 0;
+			pose_pub.publish(pose);			
+		}
+		
 		imshow("TLD", frame);
 		swap(last_gray,current_gray);
 		pts1.clear();
